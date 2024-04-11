@@ -1,0 +1,51 @@
+.navbar {
+  height: auto;
+  background-color: $light;
+  padding: 1.5rem 0;
+  position: relative;
+
+  &-item-list {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 1rem;
+  }
+
+  &-items {
+    list-style: none;
+    text-align: center;
+    height: 2.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $primary-light;
+
+      & > a {
+        color: $primary;
+      }
+    }
+
+    & > a {
+      text-decoration: none;
+      color: $dark;
+    }
+  }
+
+  .container {
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  .brand {
+    &-content {
+      color: $primary;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+  }
+}

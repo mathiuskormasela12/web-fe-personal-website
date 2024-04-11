@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body 
         className={rubik.className} 
-        suppressHydrationWarning={false}
+        suppressHydrationWarning={true}
       >
         <Wrapper>
           {children}
