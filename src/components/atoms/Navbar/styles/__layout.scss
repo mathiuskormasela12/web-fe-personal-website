@@ -1,76 +1,81 @@
-.navbar-wrapper {
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
+.navbar {
+  padding: 1rem 0;
+  background-color: $light;
   overflow: hidden;
-  transition: all .5s;
-
-  &-collapse {
-    height: 3.2em;
+  box-shadow: 0 0 0 0 $dark;
+  transition: box-shadow .3s;
+  
+  &-shadow {
+    box-shadow: 0 1px 25px -15px $dark;
   }
 
-  .navbar {
-    padding-top: 1.5rem;
-    background-color: $light;
-    overflow: hidden;
-  
-    &-item-list {
-      width: 100%;
-      order: 3;
+  &-item-list {
+    width: 100%;
+    order: 3;
+    height: 0;
+    transition: height .3s;
+
+    &-open {
+      height: calc(4 *  3.2em);
     }
-  
-    &-items {
-      list-style: none;
-      text-align: center;
-      height: 3.2em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all .3s;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: $primary-light;
-  
-        & > a {
-          color: $primary;
-        }
-      }
-  
+  }
+
+  &-items {
+    list-style: none;
+    text-align: center;
+    height: 3.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s;
+    cursor: pointer;
+
+    &:first-child {
+      margin-top: 1rem;
+    }
+
+    &:hover {
+      background-color: $primary-light;
+
       & > a {
-        text-decoration: none;
-        color: $dark;
-      }
-    }
-  
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  
-    .brand {
-      order: 1;
-      width: 50%;
-      padding-left: $container-size;
-  
-      &-content {
         color: $primary;
-        text-decoration: none;
-        font-size: 1.5rem;
       }
     }
-  
-    &-burger {
-      padding-right: $container-size;
-      display: flex;
-      justify-content: flex-end;
-      width: 50%;
-      order: 2;
-  
-      & > .burger {
-        font-size: 1.4rem;
-        cursor: pointer;
-        color: $dark;
-      }
+
+    & > a {
+      text-decoration: none;
+      color: $dark;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    order: 1;
+    width: 50%;
+    padding-left: $container-size;
+
+    &-content {
+      color: $primary;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+  }
+
+  &-burger {
+    padding-right: $container-size;
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    order: 2;
+
+    & > .burger {
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: $dark;
     }
   }
 }

@@ -6,66 +6,72 @@ import { VscChromeClose } from "react-icons/vsc";
 import styles from './styles/navbar.module.scss';
 
 const Navbar: React.FC = () => {
-  const [isToggle, setIsToggle] = useState<boolean>(true);
-  const navbarWrapper: string = useMemo(() => {
-    if(isToggle) {
-      return `${styles['navbar-wrapper']} ${styles['navbar-wrapper-collapse']}`;
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const navbar = useMemo(() => {
+    if(isOpen) {
+      return `${styles.navbar} ${styles['navbar-shadow']}`;
     } else {
-      return `${styles['navbar-wrapper']}`;
+      return `${styles.navbar}`;
     }
-  }, [isToggle])
+  }, [isOpen]);
+
+  const navbarItemList: string = useMemo(() => {
+    if(isOpen) {
+      return `${styles['navbar-item-list']} ${styles['navbar-item-list-open']}`;
+    } else {
+      return `${styles['navbar-item-list']}`;
+    }
+  }, [isOpen])
 
   const handleToggle = useCallback(() => {
-    setIsToggle(currentIsToggle => !currentIsToggle);;
+    setIsOpen(currentIsOpen => !currentIsOpen);;
   }, [])
 
   return (
-    <div className={navbarWrapper}>
-      <nav className={styles.navbar}>
-        <div className={styles.container}>
-          <div className={styles.brand}>
-            <Link href={'/'} className={styles['brand-content']}>
-              Mathius
-            </Link>
-          </div>
-          <ul className={styles['navbar-item-list']}>
-            <li className={styles['navbar-items']}>
-              <Link href={'/'}>
-                Home
-              </Link>
-            </li>
-            <li className={styles['navbar-items']}>
-              <Link href={'/'}>
-                Experiences
-              </Link>
-            </li>
-            <li className={styles['navbar-items']}>
-              <Link href={'/portfolios'}>
-                Portofolios
-              </Link>
-            </li>
-            <li className={styles['navbar-items']}>
-              <Link href={'/blog'}>
-                Blog
-              </Link>
-            </li>
-          </ul>
-          <div className={styles['navbar-burger']}>
-            {!isToggle ? (
-              <VscChromeClose 
-                className={styles.burger} 
-                onClick={handleToggle} 
-              />
-            ) : (
-              <CiMenuBurger 
-                className={styles.burger} 
-                onClick={handleToggle} 
-              />
-            )}
-          </div>
+    <nav className={navbar}>
+      <div className={styles.container}>
+        <div className={styles.brand}>
+          <Link href={'/'} className={styles['brand-content']}>
+            Mathius
+          </Link>
         </div>
-      </nav>
-    </div>
+        <ul className={navbarItemList}>
+          <li className={styles['navbar-items']}>
+            <Link href={'/'}>
+              Home
+            </Link>
+          </li>
+          <li className={styles['navbar-items']}>
+            <Link href={'/'}>
+              Experiences
+            </Link>
+          </li>
+          <li className={styles['navbar-items']}>
+            <Link href={'/portfolios'}>
+              Portofolios
+            </Link>
+          </li>
+          <li className={styles['navbar-items']}>
+            <Link href={'/blog'}>
+              Blog
+            </Link>
+          </li>
+        </ul>
+        <div className={styles['navbar-burger']}>
+          {isOpen ? (
+            <VscChromeClose 
+              className={styles.burger} 
+              onClick={handleToggle} 
+            />
+          ) : (
+            <CiMenuBurger 
+              className={styles.burger} 
+              onClick={handleToggle} 
+            />
+          )}
+        </div>
+      </div>
+    </nav>
   )
 }
 
