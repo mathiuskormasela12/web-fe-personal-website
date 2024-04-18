@@ -1,31 +1,17 @@
-'use client'
-import React, { useCallback, useMemo, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import {CiMenuBurger} from "react-icons/ci"
 import { VscChromeClose } from "react-icons/vsc";
 import styles from './styles/navbar.module.scss';
+import useNavbar from "./hooks/useNavbar";
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const navbar = useMemo(() => {
-    if(isOpen) {
-      return `${styles.navbar} ${styles['navbar-shadow']}`;
-    } else {
-      return `${styles.navbar}`;
-    }
-  }, [isOpen]);
-
-  const navbarItemList: string = useMemo(() => {
-    if(isOpen) {
-      return `${styles['navbar-item-list']} ${styles['navbar-item-list-open']}`;
-    } else {
-      return `${styles['navbar-item-list']}`;
-    }
-  }, [isOpen])
-
-  const handleToggle = useCallback(() => {
-    setIsOpen(currentIsOpen => !currentIsOpen);;
-  }, [])
+  const {
+    navbar, 
+    navbarItemList, 
+    isOpen, 
+    handleToggle
+  } = useNavbar();
 
   return (
     <nav className={navbar}>
