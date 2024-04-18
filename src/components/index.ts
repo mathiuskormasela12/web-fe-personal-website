@@ -1,5 +1,5 @@
 import Wrapper from "./atoms/Wrapper";
-import Navbar from "./atoms/Navbar";
+import Navbar from "./molecules/Navbar";
 
 export {
   Wrapper,

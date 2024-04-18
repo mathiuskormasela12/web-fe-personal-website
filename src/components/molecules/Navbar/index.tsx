@@ -57,7 +57,10 @@ const Navbar: React.FC = () => {
             </Link>
           </li>
         </ul>
-        <div className={styles['navbar-burger']}>
+        <div className={styles['navbar-side']}>
+          <div className={styles['navbar-side-button']}>
+            wkww
+          </div>
           {isOpen ? (
             <VscChromeClose 
               className={styles.burger} 

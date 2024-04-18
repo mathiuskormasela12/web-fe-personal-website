@@ -1,5 +1,5 @@
 .navbar {
-  padding: 1rem 0;
+  padding-top: 1rem;
   background-color: $light;
   overflow: hidden;
   box-shadow: 0 0 0 0 $dark;
@@ -14,6 +14,8 @@
     order: 3;
     height: 0;
     transition: height .3s;
+    padding-top: .7rem;
+    box-sizing: content-box;
 
     &-open {
       height: calc(4 *  3.2em);
@@ -29,10 +31,6 @@
     justify-content: center;
     transition: all .3s;
     cursor: pointer;
-
-    &:first-child {
-      margin-top: 1rem;
-    }
 
     &:hover {
       background-color: $primary-light;
@@ -65,12 +63,16 @@
     }
   }
 
-  &-burger {
+  &-side {
     padding-right: $container-size;
     display: flex;
     justify-content: flex-end;
     width: 50%;
     order: 2;
+
+    &-button {
+      display: none;
+    }
 
     & > .burger {
       font-size: 1.4rem;

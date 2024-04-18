@@ -1,0 +1,44 @@
+
+@media screen and (min-width: 1024px) {
+  .navbar {
+    padding-top: 0;
+    background-color: $light;
+
+    .container {
+      flex-wrap: nowrap;
+      align-items: center;
+      height: 5.5rem;
+      background-color: inherit;
+    }
+
+    .brand {
+      order: 1;
+    }
+
+    &-item-list {
+      height: auto;
+      display: flex;
+      padding: 0;
+      order: 2;
+      justify-content: center;
+    }
+
+    &-items {
+      height: auto;
+      padding: 1rem 1.4rem;
+      border-radius: 1.2rem;
+    }
+
+    &-side {
+      order: 3;
+
+      &-button {
+        display: block;
+      }
+
+      .burger {
+        display: none;
+      }
+    }
+  }
+}
