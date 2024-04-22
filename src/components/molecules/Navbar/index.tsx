@@ -2,8 +2,10 @@ import React from "react";
 import Link from "next/link";
 import {CiMenuBurger} from "react-icons/ci"
 import { VscChromeClose } from "react-icons/vsc";
-import styles from './styles/navbar.module.scss';
 import useNavbar from "./hooks/useNavbar";
+
+import styles from './styles/navbar.module.scss';
+import Button from "@/components/atoms/Button";
 
 const Navbar: React.FC = () => {
   const {
@@ -45,7 +47,9 @@ const Navbar: React.FC = () => {
         </ul>
         <div className={styles['navbar-side']}>
           <div className={styles['navbar-side-button']}>
-            wkww
+            <Button variant="primary" size="lg">
+              Hire Me
+            </Button>
           </div>
           {isOpen ? (
             <VscChromeClose 
